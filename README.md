@@ -1,9 +1,29 @@
 # expense-tracker
 
-A basic command line expense tracker (`expenses.py`, `cli.py`, tests). It is a practice
-codebase for the shared agents and skills in
-[`agent-hub`](https://github.com/rutansh/agent-hub), which are installed here with APM.
-Use it for **both** small features and big epics.
+A basic expense tracker with a web UI, a JSON API and a command line (`expenses.py` storage,
+`api.py` backend, `static/index.html` UI, `cli.py`, tests). It is a practice codebase for the
+shared agents and skills in [`agent-hub`](https://github.com/rutansh/agent-hub), which are
+installed here with APM. Use it for **both** small features and big epics.
+
+## Run the app
+
+```bash
+uv sync
+uv run python seed.py                        # optional: sample expenses (never overwrites yours)
+uv run uvicorn api:app --reload --port 8001  # open http://localhost:8001
+```
+
+You can record expenses and see the total per category. Expenses are stored in `expenses.json`
+(git-ignored). Set `EXPENSES_DATA_FILE` to use another file. Interactive API docs are at
+`/docs`. Port 8001 lets it run next to `todo-app` on 8000.
+
+| Method | Path | Does |
+| --- | --- | --- |
+| `GET` | `/api/expenses` | List all expenses |
+| `POST` | `/api/expenses` | Record one, body `{"amount": "12.50", "category": "food", "note": "lunch"}` |
+| `GET` | `/api/summary` | Total cents per category |
+
+The same data is available from the command line:
 
 ```bash
 uv run python cli.py add 12.50 food --note "lunch"
@@ -17,7 +37,7 @@ uv run python cli.py summary
 brew install apm
 apm install              # pulls the agents and skills pinned in apm.lock.yaml
 uv sync
-uv run pytest            # 11 tests pass
+uv run pytest            # 25 tests pass
 ```
 
 After `apm install`:
@@ -54,12 +74,13 @@ The agent asks whether it is a **small feature** or a **big epic** and runs the 
 
 ### Small feature (one MR)
 
-- "Add a `--category` filter to `list`."
-- "Add a `delete` command for an expense by id."
-- "Make `summary` also print the grand total."
+- "Add a category filter to the expense list, in the UI and with `--category` on `list`."
+- "Add a way to delete an expense: an API endpoint, a button in the UI and a `delete` command."
+- "Show the grand total next to the category totals, in the UI, the API and `summary`."
 
-Expected: the agent reads `expenses.py`, `cli.py` and `tests/`, writes tests first, implements
-the change, runs `uv run pytest`, and asks before pushing anything.
+Expected: the agent reads `expenses.py`, `api.py`, `static/index.html`, `cli.py` and `tests/`,
+writes tests first, implements the change, runs `uv run pytest`, and asks before pushing
+anything. With `--reload` the server restarts by itself, so refresh the browser to see it.
 
 ### Big epic (design, tickets, stack of MRs)
 

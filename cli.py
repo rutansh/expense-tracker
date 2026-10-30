@@ -38,13 +38,17 @@ def main(argv: list[str] | None = None, path: Path = DEFAULT_FILE) -> int:
         except ValueError as exc:
             print(exc)
             return 1
-        print(f"added #{expense.expense_id}: {format_money(expense.amount_cents)} {expense.category}")
+        print(
+            f"added #{expense.expense_id}: {format_money(expense.amount_cents)} {expense.category}"
+        )
     elif args.command == "summary":
         for category, total in sorted(store.total_by_category().items()):
             print(f"{category}: {format_money(total)}")
     else:
         for e in store.list_expenses():
-            print(f"#{e.expense_id} {e.spent_on} {format_money(e.amount_cents)} {e.category} {e.note}")
+            print(
+                f"#{e.expense_id} {e.spent_on} {format_money(e.amount_cents)} {e.category} {e.note}"
+            )
     return 0
 
 
