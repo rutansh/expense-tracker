@@ -1,0 +1,37 @@
+lockfile_version: '1'
+apm_version: 0.35.0
+dependencies:
+- repo_url: rutansh/ai4pharma-skills
+  name: ai4pharma-skills
+  host: github.com
+  resolved_commit: 94f9ea52c3fe1e42f531575bef0b691c563d39cd
+  resolved_ref: v0.1.0
+  version: 0.1.0
+  package_type: skill_bundle
+  deployed_files:
+  - .agents/skills/adverse-event-triage
+  - .agents/skills/adverse-event-triage/SKILL.md
+  deployed_file_hashes:
+    .agents/skills/adverse-event-triage/SKILL.md: sha256:a3bcacd19a3461ea91638d20f7546ec9314a27fc7d82cc678e83d2faa44d5d52
+  content_hash: sha256:de400b85002308944fec0f7e00c72128f0b411eee73add83b48f0267600edfea
+  skill_subset:
+  - adverse-event-triage
+deployments:
+- kind: project-relative
+  target: cursor
+  value: .agents/skills/adverse-event-triage
+  runtime: null
+  scope: project
+  owners:
+  - rutansh/ai4pharma-skills
+  active_owner: rutansh/ai4pharma-skills
+  content_hash: null
+- kind: project-relative
+  target: cursor
+  value: .agents/skills/adverse-event-triage/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - rutansh/ai4pharma-skills
+  active_owner: rutansh/ai4pharma-skills
+  content_hash: sha256:a3bcacd19a3461ea91638d20f7546ec9314a27fc7d82cc678e83d2faa44d5d52

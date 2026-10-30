@@ -1,0 +1,18 @@
+name: demo-safety-desk
+version: 1.0.0
+description: APM project for demo-safety-desk
+author: rutansh
+# Which agent platforms to deploy to.
+# Resolution order: --target flag > this field > auto-detect from filesystem.
+# Accepted values: agent-skills, antigravity, claude, codex, copilot, cursor, gemini, grok-bot, grok-build, hermes, kiro, opencode, vscode, windsurf
+targets:
+  - cursor
+dependencies:
+  apm:
+    - git: rutansh/ai4pharma-skills
+      ref: v0.1.0
+      skills:
+        - adverse-event-triage
+  mcp: []
+includes: auto
+scripts: {}
