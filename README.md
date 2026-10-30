@@ -15,15 +15,27 @@ apm install              # pulls the agents and skills pinned in apm.lock.yaml
 uv sync && uv run pytest # 6 tests pass
 ```
 
-Optional, for the full flow:
+## Credentials (optional, for the full flow)
 
-| Tool | Why | Setup |
-| --- | --- | --- |
-| `acli` | Create real Jira tickets | Atlassian CLI, then `acli jira auth login --web` |
-| `glab` | Stacked MRs on GitLab | `brew install glab && glab auth login` |
+The agents use three CLIs. Put your own credentials in a git-ignored `.env` file:
 
-Without them the agents fall back (tickets written to a markdown file; chained PRs via `gh`
-for GitHub repos) and tell you they did.
+```bash
+cp .env.example .env     # then open .env and fill in the tools you use
+source .agents/skills/connect-tools/scripts/connect.sh   # loads .env and checks each tool
+```
+
+| Tool | Why | Variables in `.env` | Install |
+| --- | --- | --- | --- |
+| `acli` | Create real Jira tickets | `JIRA_SITE`, `JIRA_EMAIL`, `JIRA_API_TOKEN`, `JIRA_PROJECT_KEY` | [Atlassian CLI](https://developer.atlassian.com/cloud/acli/guides/update-install-guide/) |
+| `glab` | Stacked MRs on GitLab | `GITLAB_TOKEN`, `GITLAB_HOST` | `brew install glab` |
+| `gh` | Chained PRs on GitHub | `GH_TOKEN` | `brew install gh` |
+
+You do not need to run the script yourself: `start-task` runs the `connect-tools` skill at
+the start of an epic and tells you what is missing. `.env` is ignored by git and by Cursor.
+Never paste tokens into the chat.
+
+Without credentials the agents fall back (tickets written to a markdown file; chained PRs
+via `gh` for GitHub repos) and tell you they did.
 
 ## The demo
 

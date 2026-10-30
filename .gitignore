@@ -5,3 +5,8 @@ apm_modules/
 __pycache__/
 .pytest_cache/
 todos.json
+
+# Credentials - never commit
+.env
+.env.*
+!.env.example
