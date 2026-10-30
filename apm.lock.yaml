@@ -4,25 +4,33 @@ dependencies:
 - repo_url: rutansh/agent-hub
   name: agent-hub
   host: github.com
-  resolved_commit: d347d9449657e3f33c6b20ae572d3193a9d89041
-  resolved_ref: v0.3.0
-  version: 0.3.0
+  resolved_commit: fbcf818e02f527295e926b43a2c1fb19a974d395
+  resolved_ref: v0.4.0
+  version: 0.4.0
   package_type: apm_package
   deployed_files:
   - .agents/skills/connect-tools
   - .agents/skills/connect-tools/SKILL.md
   - .agents/skills/connect-tools/env.example
   - .agents/skills/connect-tools/scripts/connect.sh
+  - .agents/skills/connect-tools/scripts/env_status.py
   - .agents/skills/implement-feature
   - .agents/skills/implement-feature/SKILL.md
+  - .agents/skills/implement-feature/scripts/feature.py
   - .agents/skills/jira-tickets
   - .agents/skills/jira-tickets/SKILL.md
+  - .agents/skills/jira-tickets/scripts/jira_sync.py
+  - .agents/skills/jira-tickets/scripts/planlib.py
   - .agents/skills/review-literature
   - .agents/skills/review-literature/SKILL.md
   - .agents/skills/stacked-mrs
   - .agents/skills/stacked-mrs/SKILL.md
+  - .agents/skills/stacked-mrs/scripts/planlib.py
+  - .agents/skills/stacked-mrs/scripts/stack.py
   - .agents/skills/start-task
   - .agents/skills/start-task/SKILL.md
+  - .agents/skills/start-task/scripts/epic.py
+  - .agents/skills/start-task/scripts/planlib.py
   - .agents/skills/summarize-trial
   - .agents/skills/summarize-trial/SKILL.md
   - .agents/skills/triage-adverse-events
@@ -31,20 +39,28 @@ dependencies:
   - .cursor/agents/builder.md
   - .cursor/agents/planner.md
   deployed_file_hashes:
-    .agents/skills/connect-tools/SKILL.md: sha256:871a0f5d509decc1635cf910e87aa7d63c1e0ac9a42dc6a19790fb00f054d373
+    .agents/skills/connect-tools/SKILL.md: sha256:d97a0b154a0d6b8c555e4128807031d883c86a072e758d7d9e20de4048871d89
     .agents/skills/connect-tools/env.example: sha256:89a24b6cd4cec468f46dca283095e9010e1e0f852238ea703f5232b4a27fb6e1
     .agents/skills/connect-tools/scripts/connect.sh: sha256:3d0e5965497babeb8edeab0649f5850f758c4116ef945d2ed42ae67be71b9ded
-    .agents/skills/implement-feature/SKILL.md: sha256:4f4f9a89233a803fccafd5953685901c983da9c9650280bf6822bfec13c00e6c
-    .agents/skills/jira-tickets/SKILL.md: sha256:2210b0cc3e5fe6693f0faeb16d18c78860a8ba11fdcf30c427e2b178df6ae147
+    .agents/skills/connect-tools/scripts/env_status.py: sha256:e465d4d0565a42dd050eee2ce0ff47178a9d5d0c6d85d81737aa979f022917ce
+    .agents/skills/implement-feature/SKILL.md: sha256:4e5fd75c91cda9bdfa3733fa9a15930d45ba4cbeec7f1860db0c80e2ce77f941
+    .agents/skills/implement-feature/scripts/feature.py: sha256:81932239243ad612fe0f8d3bf578a9005dd21dfc40809b4a9f64d5dd9ac80d6f
+    .agents/skills/jira-tickets/SKILL.md: sha256:90fc8b84d236e19e7d0cd7118a9ab4cc0d14a9193b588b96108cb685edce9053
+    .agents/skills/jira-tickets/scripts/jira_sync.py: sha256:ba7fb9ac59a2a15778de6e5e5265f774e64a6e6a22d5fda873dc11905cd5fa4a
+    .agents/skills/jira-tickets/scripts/planlib.py: sha256:42f05b3136d5ffea9a8af53ebfa86040f89d8ada556dee869ed019abac05a74f
     .agents/skills/review-literature/SKILL.md: sha256:ff9b74e610aabdd196b7c991f6a0348ff2eb385a42e14fb7c1d6ef7da9813f48
-    .agents/skills/stacked-mrs/SKILL.md: sha256:abcf5e236e7e3bc37ef0e19c0547c574ee36d2fdaaecdf09fa498981de1d17e8
-    .agents/skills/start-task/SKILL.md: sha256:c85d6f2feec347246a1da36540eaf327a67fe36b62e949715f28506760fd2439
+    .agents/skills/stacked-mrs/SKILL.md: sha256:9e32bec13ef684757ba31348933d35b4bf4a09793f56a9b1ba2a3a6a9d5ba203
+    .agents/skills/stacked-mrs/scripts/planlib.py: sha256:42f05b3136d5ffea9a8af53ebfa86040f89d8ada556dee869ed019abac05a74f
+    .agents/skills/stacked-mrs/scripts/stack.py: sha256:fd7770fcf38bc7ca53a03bfa20ff13a6dcc718ef063a66650bbcd3374165d867
+    .agents/skills/start-task/SKILL.md: sha256:2ff829a5b59d056940919e394ccfa2f4e51b9d072e4bd47ccfd95eb417f6f4d0
+    .agents/skills/start-task/scripts/epic.py: sha256:a0e104ae3e0a212d2b531af45fec098e7954b51236b9536e60b4a0511378790e
+    .agents/skills/start-task/scripts/planlib.py: sha256:42f05b3136d5ffea9a8af53ebfa86040f89d8ada556dee869ed019abac05a74f
     .agents/skills/summarize-trial/SKILL.md: sha256:cfa90ae93bc9ada3df61a9f748985764a27f6a64ed1469e6320d56414fd2412e
     .agents/skills/triage-adverse-events/SKILL.md: sha256:7222b394649605f5d55e4ada5d644e444a307dbb9b5d9c1f2594306cc0a8dbb6
-    .cursor/agents/architect.md: sha256:340358f04173615c8b122ab5f3a2aaf530a247e521afa270c2636c555c25ac25
-    .cursor/agents/builder.md: sha256:48a00cc4077244818b708be3aa053595703dd88bd01d363dbe6bf11a13f166c7
-    .cursor/agents/planner.md: sha256:f82d1d55b97b504a0e45f93b9ab2b6550d1b1fc9eb87b74e0fd2e000a5323a40
-  content_hash: sha256:272b82f888f857b7bb6307efb01be00f07b7fd32945b8af4598324ba54c66e38
+    .cursor/agents/architect.md: sha256:cacbd108d7820aa0c7689ff397f3ac1eb5f472405f705f6d88014f6edac3349a
+    .cursor/agents/builder.md: sha256:126b734c8177ff6557848020aead3c970c12ce657ffd4154f7d6ef15f557fc0e
+    .cursor/agents/planner.md: sha256:62190e2245d7cc8c75e91953ade0f2eb6e2f7083368219485d6c1d0ca3ce2df7
+  content_hash: sha256:b0f98f36451429c6d310c6fa495cc9b4f43862b01a95cdd8f60cddb1989f7050
 deployments:
 - kind: project-relative
   target: cursor
@@ -63,7 +79,7 @@ deployments:
   owners:
   - rutansh/agent-hub
   active_owner: rutansh/agent-hub
-  content_hash: sha256:871a0f5d509decc1635cf910e87aa7d63c1e0ac9a42dc6a19790fb00f054d373
+  content_hash: sha256:d97a0b154a0d6b8c555e4128807031d883c86a072e758d7d9e20de4048871d89
 - kind: project-relative
   target: cursor
   value: .agents/skills/connect-tools/env.example
@@ -84,6 +100,15 @@ deployments:
   content_hash: sha256:3d0e5965497babeb8edeab0649f5850f758c4116ef945d2ed42ae67be71b9ded
 - kind: project-relative
   target: cursor
+  value: .agents/skills/connect-tools/scripts/env_status.py
+  runtime: null
+  scope: project
+  owners:
+  - rutansh/agent-hub
+  active_owner: rutansh/agent-hub
+  content_hash: sha256:e465d4d0565a42dd050eee2ce0ff47178a9d5d0c6d85d81737aa979f022917ce
+- kind: project-relative
+  target: cursor
   value: .agents/skills/implement-feature
   runtime: null
   scope: project
@@ -99,7 +124,16 @@ deployments:
   owners:
   - rutansh/agent-hub
   active_owner: rutansh/agent-hub
-  content_hash: sha256:4f4f9a89233a803fccafd5953685901c983da9c9650280bf6822bfec13c00e6c
+  content_hash: sha256:4e5fd75c91cda9bdfa3733fa9a15930d45ba4cbeec7f1860db0c80e2ce77f941
+- kind: project-relative
+  target: cursor
+  value: .agents/skills/implement-feature/scripts/feature.py
+  runtime: null
+  scope: project
+  owners:
+  - rutansh/agent-hub
+  active_owner: rutansh/agent-hub
+  content_hash: sha256:81932239243ad612fe0f8d3bf578a9005dd21dfc40809b4a9f64d5dd9ac80d6f
 - kind: project-relative
   target: cursor
   value: .agents/skills/jira-tickets
@@ -117,7 +151,25 @@ deployments:
   owners:
   - rutansh/agent-hub
   active_owner: rutansh/agent-hub
-  content_hash: sha256:2210b0cc3e5fe6693f0faeb16d18c78860a8ba11fdcf30c427e2b178df6ae147
+  content_hash: sha256:90fc8b84d236e19e7d0cd7118a9ab4cc0d14a9193b588b96108cb685edce9053
+- kind: project-relative
+  target: cursor
+  value: .agents/skills/jira-tickets/scripts/jira_sync.py
+  runtime: null
+  scope: project
+  owners:
+  - rutansh/agent-hub
+  active_owner: rutansh/agent-hub
+  content_hash: sha256:ba7fb9ac59a2a15778de6e5e5265f774e64a6e6a22d5fda873dc11905cd5fa4a
+- kind: project-relative
+  target: cursor
+  value: .agents/skills/jira-tickets/scripts/planlib.py
+  runtime: null
+  scope: project
+  owners:
+  - rutansh/agent-hub
+  active_owner: rutansh/agent-hub
+  content_hash: sha256:42f05b3136d5ffea9a8af53ebfa86040f89d8ada556dee869ed019abac05a74f
 - kind: project-relative
   target: cursor
   value: .agents/skills/review-literature
@@ -153,7 +205,25 @@ deployments:
   owners:
   - rutansh/agent-hub
   active_owner: rutansh/agent-hub
-  content_hash: sha256:abcf5e236e7e3bc37ef0e19c0547c574ee36d2fdaaecdf09fa498981de1d17e8
+  content_hash: sha256:9e32bec13ef684757ba31348933d35b4bf4a09793f56a9b1ba2a3a6a9d5ba203
+- kind: project-relative
+  target: cursor
+  value: .agents/skills/stacked-mrs/scripts/planlib.py
+  runtime: null
+  scope: project
+  owners:
+  - rutansh/agent-hub
+  active_owner: rutansh/agent-hub
+  content_hash: sha256:42f05b3136d5ffea9a8af53ebfa86040f89d8ada556dee869ed019abac05a74f
+- kind: project-relative
+  target: cursor
+  value: .agents/skills/stacked-mrs/scripts/stack.py
+  runtime: null
+  scope: project
+  owners:
+  - rutansh/agent-hub
+  active_owner: rutansh/agent-hub
+  content_hash: sha256:fd7770fcf38bc7ca53a03bfa20ff13a6dcc718ef063a66650bbcd3374165d867
 - kind: project-relative
   target: cursor
   value: .agents/skills/start-task
@@ -171,7 +241,25 @@ deployments:
   owners:
   - rutansh/agent-hub
   active_owner: rutansh/agent-hub
-  content_hash: sha256:c85d6f2feec347246a1da36540eaf327a67fe36b62e949715f28506760fd2439
+  content_hash: sha256:2ff829a5b59d056940919e394ccfa2f4e51b9d072e4bd47ccfd95eb417f6f4d0
+- kind: project-relative
+  target: cursor
+  value: .agents/skills/start-task/scripts/epic.py
+  runtime: null
+  scope: project
+  owners:
+  - rutansh/agent-hub
+  active_owner: rutansh/agent-hub
+  content_hash: sha256:a0e104ae3e0a212d2b531af45fec098e7954b51236b9536e60b4a0511378790e
+- kind: project-relative
+  target: cursor
+  value: .agents/skills/start-task/scripts/planlib.py
+  runtime: null
+  scope: project
+  owners:
+  - rutansh/agent-hub
+  active_owner: rutansh/agent-hub
+  content_hash: sha256:42f05b3136d5ffea9a8af53ebfa86040f89d8ada556dee869ed019abac05a74f
 - kind: project-relative
   target: cursor
   value: .agents/skills/summarize-trial
@@ -216,7 +304,7 @@ deployments:
   owners:
   - rutansh/agent-hub
   active_owner: rutansh/agent-hub
-  content_hash: sha256:340358f04173615c8b122ab5f3a2aaf530a247e521afa270c2636c555c25ac25
+  content_hash: sha256:cacbd108d7820aa0c7689ff397f3ac1eb5f472405f705f6d88014f6edac3349a
 - kind: project-relative
   target: cursor
   value: .cursor/agents/builder.md
@@ -225,7 +313,7 @@ deployments:
   owners:
   - rutansh/agent-hub
   active_owner: rutansh/agent-hub
-  content_hash: sha256:48a00cc4077244818b708be3aa053595703dd88bd01d363dbe6bf11a13f166c7
+  content_hash: sha256:126b734c8177ff6557848020aead3c970c12ce657ffd4154f7d6ef15f557fc0e
 - kind: project-relative
   target: cursor
   value: .cursor/agents/planner.md
@@ -234,4 +322,4 @@ deployments:
   owners:
   - rutansh/agent-hub
   active_owner: rutansh/agent-hub
-  content_hash: sha256:f82d1d55b97b504a0e45f93b9ab2b6550d1b1fc9eb87b74e0fd2e000a5323a40
+  content_hash: sha256:62190e2245d7cc8c75e91953ade0f2eb6e2f7083368219485d6c1d0ca3ce2df7

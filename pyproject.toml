@@ -16,3 +16,5 @@ testpaths = ["tests"]
 
 [tool.ruff]
 line-length = 100
+# Installed by `apm install`; maintained in agent-hub, not here
+extend-exclude = [".agents", ".cursor", "apm_modules"]
