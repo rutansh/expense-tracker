@@ -9,7 +9,7 @@ targets:
   - cursor
 dependencies:
   apm:
-    - rutansh/agent-hub#v0.4.1
+    - rutansh/agent-hub#v0.5.0
   mcp: []
 includes: auto
 scripts: {}
