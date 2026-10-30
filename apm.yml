@@ -1,6 +1,6 @@
-name: demo-safety-desk
+name: demo-big-epic
 version: 1.0.0
-description: APM project for demo-safety-desk
+description: APM project for demo-big-epic
 author: rutansh
 # Which agent platforms to deploy to.
 # Resolution order: --target flag > this field > auto-detect from filesystem.
@@ -9,10 +9,7 @@ targets:
   - cursor
 dependencies:
   apm:
-    - git: rutansh/ai4pharma-skills
-      ref: v0.1.0
-      skills:
-        - adverse-event-triage
+    - rutansh/agent-hub#v0.2.0
   mcp: []
 includes: auto
 scripts: {}

@@ -1,49 +1,61 @@
-# demo-safety-desk
+# demo-big-epic
 
-Demo project showing **selective install** of shared skills from
-[`ai4pharma-skills`](https://github.com/rutansh/ai4pharma-skills) with APM.
+**Demo:** hand an AI team a big epic. An architect asks the design questions, a planner
+creates the Jira tickets, and a builder ships a stack of merge requests.
 
-Unlike `demo-trial-analyst` (which installs everything), this project only needs
-one skill, so only `adverse-event-triage` is deployed.
+The code is a tiny todo app (`todo.py`, `cli.py`, tests). The shared agents and skills come
+from [`agent-hub`](https://github.com/rutansh/agent-hub) through APM.
 
-```yaml
-# apm.yml
-dependencies:
-  apm:
-    - git: rutansh/ai4pharma-skills
-      ref: v0.1.0
-      skills:
-        - adverse-event-triage
-```
-
-## Setup
+## Setup (once)
 
 ```bash
-brew install apm        # once per machine
-gh auth login           # the skills repo is private; APM uses your GitHub auth
-apm install             # deploys only the selected skill into .agents/skills/
+brew install apm
+gh auth login            # agent-hub is private
+apm install              # pulls the agents and skills pinned in apm.lock.yaml
+uv sync && uv run pytest # 6 tests pass
 ```
 
-## Try it
+Optional, for the full flow:
 
-Open this folder in Cursor and ask the agent:
+| Tool | Why | Setup |
+| --- | --- | --- |
+| `acli` | Create real Jira tickets | Atlassian CLI, then `acli jira auth login --web` |
+| `glab` | Stacked MRs on GitLab | `brew install glab && glab auth login` |
 
-> Triage the cases in `data/ae-reports.md`
+Without them the agents fall back (tickets written to a markdown file; chained PRs via `gh`
+for GitHub repos) and tell you they did.
 
-The agent should apply the `adverse-event-triage` skill: a priority-sorted table
-(P1/P2/P3) plus the missing information needed for each P1/P2 case. Since no
-reference safety document is provided, expectedness should be reported as
-"unknown - reference document needed".
+## The demo
 
-## Add another skill later
+Open this folder in Cursor and type:
 
-```bash
-apm install rutansh/ai4pharma-skills --skill literature-review-brief
+> Use start-task. I want to add team workspaces: users can create a workspace, invite
+> teammates, share task lists, and get notified when a shared task is completed.
+
+What should happen:
+
+| Step | Who | What you see |
+| --- | --- | --- |
+| 1 | `start-task` | Asks **small feature or big epic?** Answer: **big epic**. Asks for the Jira project key. |
+| 2 | `architect` | Reads the code, then asks design questions (data model, permissions, how notifications are delivered, storage). Writes `docs/epics/team-workspaces/design.md`. |
+| 3 | `planner` | Splits the design into small tasks, shows the list for approval, creates the Jira epic and child tickets, writes `plan.md`. |
+| 4 | `builder` | Implements each task with tests, saves each as one diff, shows the stack, and after approval opens the chain of MRs. |
+
+You approve at the end of every phase.
+
+## Files the agents create
+
+```
+docs/epics/team-workspaces/
+  design.md     # architect output
+  plan.md       # planner output, with Jira keys and task status
 ```
 
-`--skill` is additive: it unions with the skills already pinned.
+## What this shows
 
-## Notes
+- Big work is designed before it is coded.
+- Tickets and merge requests stay small and reviewable.
+- The whole workflow installs into any repo with one `apm install`.
 
-- All data in `data/` is **fictional**, for demo purposes only.
-- `apm.lock.yaml` is committed so everyone gets identical skills.
+See also: [`demo-small-feature`](https://github.com/rutansh/demo-small-feature) for the
+single-agent small feature flow.

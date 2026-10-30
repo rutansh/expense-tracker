@@ -1,0 +1,18 @@
+[project]
+name = "todo-app"
+version = "0.1.0"
+description = "Tiny todo app used to demo the agent-hub workflows"
+requires-python = ">=3.10"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
