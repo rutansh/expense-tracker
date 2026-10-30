@@ -4,9 +4,9 @@ dependencies:
 - repo_url: rutansh/agent-hub
   name: agent-hub
   host: github.com
-  resolved_commit: fbcf818e02f527295e926b43a2c1fb19a974d395
-  resolved_ref: v0.4.0
-  version: 0.4.0
+  resolved_commit: b49d2a71d11078ffb77ecb83e2ec4865c9554a89
+  resolved_ref: v0.4.1
+  version: 0.4.1
   package_type: apm_package
   deployed_files:
   - .agents/skills/connect-tools
@@ -39,10 +39,10 @@ dependencies:
   - .cursor/agents/builder.md
   - .cursor/agents/planner.md
   deployed_file_hashes:
-    .agents/skills/connect-tools/SKILL.md: sha256:d97a0b154a0d6b8c555e4128807031d883c86a072e758d7d9e20de4048871d89
+    .agents/skills/connect-tools/SKILL.md: sha256:d80cce16d794a09aa5acac505b79c91473836e54c321b53a7bd38f4f5299554f
     .agents/skills/connect-tools/env.example: sha256:89a24b6cd4cec468f46dca283095e9010e1e0f852238ea703f5232b4a27fb6e1
     .agents/skills/connect-tools/scripts/connect.sh: sha256:3d0e5965497babeb8edeab0649f5850f758c4116ef945d2ed42ae67be71b9ded
-    .agents/skills/connect-tools/scripts/env_status.py: sha256:e465d4d0565a42dd050eee2ce0ff47178a9d5d0c6d85d81737aa979f022917ce
+    .agents/skills/connect-tools/scripts/env_status.py: sha256:7063c78ac791a72a8d31f15c834565396d36b9a10709d1cd5c50796b05d66bb2
     .agents/skills/implement-feature/SKILL.md: sha256:4e5fd75c91cda9bdfa3733fa9a15930d45ba4cbeec7f1860db0c80e2ce77f941
     .agents/skills/implement-feature/scripts/feature.py: sha256:81932239243ad612fe0f8d3bf578a9005dd21dfc40809b4a9f64d5dd9ac80d6f
     .agents/skills/jira-tickets/SKILL.md: sha256:90fc8b84d236e19e7d0cd7118a9ab4cc0d14a9193b588b96108cb685edce9053
@@ -60,7 +60,7 @@ dependencies:
     .cursor/agents/architect.md: sha256:cacbd108d7820aa0c7689ff397f3ac1eb5f472405f705f6d88014f6edac3349a
     .cursor/agents/builder.md: sha256:126b734c8177ff6557848020aead3c970c12ce657ffd4154f7d6ef15f557fc0e
     .cursor/agents/planner.md: sha256:62190e2245d7cc8c75e91953ade0f2eb6e2f7083368219485d6c1d0ca3ce2df7
-  content_hash: sha256:b0f98f36451429c6d310c6fa495cc9b4f43862b01a95cdd8f60cddb1989f7050
+  content_hash: sha256:53d1998f7ee2dfff541367c3bb82609378b9ca67305cd9bea5fa0a6114281505
 deployments:
 - kind: project-relative
   target: cursor
@@ -79,7 +79,7 @@ deployments:
   owners:
   - rutansh/agent-hub
   active_owner: rutansh/agent-hub
-  content_hash: sha256:d97a0b154a0d6b8c555e4128807031d883c86a072e758d7d9e20de4048871d89
+  content_hash: sha256:d80cce16d794a09aa5acac505b79c91473836e54c321b53a7bd38f4f5299554f
 - kind: project-relative
   target: cursor
   value: .agents/skills/connect-tools/env.example
@@ -106,7 +106,7 @@ deployments:
   owners:
   - rutansh/agent-hub
   active_owner: rutansh/agent-hub
-  content_hash: sha256:e465d4d0565a42dd050eee2ce0ff47178a9d5d0c6d85d81737aa979f022917ce
+  content_hash: sha256:7063c78ac791a72a8d31f15c834565396d36b9a10709d1cd5c50796b05d66bb2
 - kind: project-relative
   target: cursor
   value: .agents/skills/implement-feature
