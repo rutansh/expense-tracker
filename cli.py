@@ -1,45 +1,50 @@
-"""Command line interface: python cli.py add|list|done."""
+"""Command line interface: python cli.py add|list|summary."""
 
 from __future__ import annotations
 
 import argparse
 from pathlib import Path
 
-from todo import TodoStore
+from expenses import ExpenseStore, parse_amount
 
-DEFAULT_FILE = Path("todos.json")
+DEFAULT_FILE = Path("expenses.json")
+
+
+def format_money(cents: int) -> str:
+    """Format integer cents as a dollar string."""
+    return f"${cents / 100:,.2f}"
 
 
 def build_parser() -> argparse.ArgumentParser:
     """Create the argument parser."""
-    parser = argparse.ArgumentParser(prog="todo")
+    parser = argparse.ArgumentParser(prog="expenses")
     sub = parser.add_subparsers(dest="command", required=True)
-    sub.add_parser("list", help="show all tasks")
-    add = sub.add_parser("add", help="add a task")
-    add.add_argument("title")
-    done = sub.add_parser("done", help="mark a task as done")
-    done.add_argument("task_id", type=int)
+    add = sub.add_parser("add", help="record an expense")
+    add.add_argument("amount", help="for example 12.50")
+    add.add_argument("category")
+    add.add_argument("--note", default="")
+    sub.add_parser("list", help="show all expenses")
+    sub.add_parser("summary", help="show totals per category")
     return parser
 
 
 def main(argv: list[str] | None = None, path: Path = DEFAULT_FILE) -> int:
     """Run the CLI and return a process exit code."""
     args = build_parser().parse_args(argv)
-    store = TodoStore(path)
+    store = ExpenseStore(path)
     if args.command == "add":
-        task = store.add(args.title)
-        print(f"added #{task.task_id}: {task.title}")
-    elif args.command == "done":
         try:
-            task = store.complete(args.task_id)
-        except KeyError as exc:
-            print(exc.args[0])
+            expense = store.add(parse_amount(args.amount), args.category, args.note)
+        except ValueError as exc:
+            print(exc)
             return 1
-        print(f"completed #{task.task_id}: {task.title}")
+        print(f"added #{expense.expense_id}: {format_money(expense.amount_cents)} {expense.category}")
+    elif args.command == "summary":
+        for category, total in sorted(store.total_by_category().items()):
+            print(f"{category}: {format_money(total)}")
     else:
-        for task in store.list_tasks():
-            mark = "x" if task.is_done else " "
-            print(f"[{mark}] #{task.task_id} {task.title}")
+        for e in store.list_expenses():
+            print(f"#{e.expense_id} {e.spent_on} {format_money(e.amount_cents)} {e.category} {e.note}")
     return 0
 
 

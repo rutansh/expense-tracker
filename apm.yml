@@ -1,6 +1,6 @@
-name: demo-big-epic
+name: expense-tracker
 version: 1.0.0
-description: APM project for demo-big-epic
+description: APM project for expense-tracker
 author: rutansh
 # Which agent platforms to deploy to.
 # Resolution order: --target flag > this field > auto-detect from filesystem.

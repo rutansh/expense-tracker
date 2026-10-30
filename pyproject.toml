@@ -1,7 +1,7 @@
 [project]
-name = "todo-app"
+name = "expense-tracker"
 version = "0.1.0"
-description = "Tiny todo app used to demo the agent-hub workflows"
+description = "Tiny expense tracker for trying the agent-hub workflows"
 requires-python = ">=3.10"
 dependencies = []
 
